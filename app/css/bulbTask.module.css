@@ -1,0 +1,14 @@
+/* styles.module.css */
+
+/* Menengahkan vertikal dan horizontal */
+.flexcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Membuat gambar responsif */
+.imgcenter {
+  max-width: 100%;
+  height: auto;
+}
