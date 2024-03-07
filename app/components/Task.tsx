@@ -9,16 +9,16 @@ function Task() {
   return (
     <>
       <div className="row">
-        <div className={`${style.flexcenter} col`}>
+        <div className={`${style.flexcenter} col col-xs-6`}>
           <RedBulbCheck />
         </div>
-        <div className={`${style.flexcenter} col`}>
+        <div className={`${style.flexcenter} col col-xs-6`}>
           <GreenBulbCheck />
         </div>
-        <div className={`${style.flexcenter} col`}>
+        <div className={`${style.flexcenter} col col-xs-6`}>
           <BlueBulbCheck />
         </div>
-        <div className={`${style.flexcenter} col`}>
+        <div className={`${style.flexcenter} col col-xs-6`}>
           <YellowBulbCheck />
         </div>
       </div>
