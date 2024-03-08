@@ -28,6 +28,7 @@ function LoginPage() {
       push("/dashboard");
     } catch (error: any) {
       alert(error);
+      console.log(error);
     }
   };
 
