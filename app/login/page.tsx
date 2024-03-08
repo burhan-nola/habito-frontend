@@ -1,9 +1,8 @@
 "use client";
-
+import Cookies from "js-cookie";
 import axios, { AxiosResponse } from "axios";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function LoginPage() {
   const [device, setDevice] = useState("");
@@ -21,17 +20,13 @@ function LoginPage() {
         deviceID: device,
         password: password,
       };
-      const res = await signIn("credentials", {
-        redirect: false,
-        deviceID: device,
-        password: password,
-        callbackUrl: "/dasboard",
-      });
-      if (!res?.error) {
-        push("/dashboard");
-      }
-    } catch (error) {
-      console.log(error);
+      //@ts-ignore
+      const url: string = process.env.NEXT_PUBLIC_LOGIN;
+      const res: AxiosResponse = await axios.post(url, data);
+      Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
+      push("/dashboard");
+    } catch (error: any) {
+      alert(error);
     }
   };
 

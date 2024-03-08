@@ -3,8 +3,6 @@ import { Inter, Roboto_Condensed } from "next/font/google";
 // import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BoostrapInstall from "./components/Bootstrap";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { SessionProvider } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 const roboto_condenced = Roboto_Condensed({ subsets: ["latin"] });
