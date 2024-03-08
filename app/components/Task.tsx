@@ -4,26 +4,47 @@ import RedBulbCheck from "./bulb/check/RedBulbCheck";
 import GreenBulbCheck from "./bulb/check/GreenBulbCheck";
 import BlueBulbCheck from "./bulb/check/BlueBulbCheck";
 import YellowBulbCheck from "./bulb/check/YellowBulbCheck";
+import RedBulbCross from "./bulb/cross/RedBulbCross";
+import GreenBulbCross from "./bulb/cross/GreenBulbCross";
+import BlueBulbCross from "./bulb/cross/BlueBulbCross";
+import YellowBulbCross from "./bulb/cross/YellowBulbCross";
 
-function Task() {
+interface ChildProps {
+  data: any;
+}
+
+const Task: React.FC<ChildProps> = ({ data }) => {
+  console.log(data);
   return (
     <>
       <div className="row">
         <div className={`${style.flexcenter} col col-xs-6`}>
-          <RedBulbCheck />
+          {data.light.red.status == false ? <RedBulbCross /> : <RedBulbCheck />}
         </div>
         <div className={`${style.flexcenter} col col-xs-6`}>
-          <GreenBulbCheck />
+          {data.light.green.status == false ? (
+            <GreenBulbCross />
+          ) : (
+            <GreenBulbCheck />
+          )}
         </div>
         <div className={`${style.flexcenter} col col-xs-6`}>
-          <BlueBulbCheck />
+          {data.light.blue.status == false ? (
+            <BlueBulbCross />
+          ) : (
+            <BlueBulbCheck />
+          )}
         </div>
         <div className={`${style.flexcenter} col col-xs-6`}>
-          <YellowBulbCheck />
+          {data.light.yellow.status == false ? (
+            <YellowBulbCross />
+          ) : (
+            <YellowBulbCheck />
+          )}
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Task;

@@ -3,10 +3,12 @@ import Cookies from "js-cookie";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 function LoginPage() {
   const [device, setDevice] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, isLoading] = useState(false);
   const [error, setError] = useState();
 
   const { push } = useRouter();
@@ -16,13 +18,14 @@ function LoginPage() {
       alert("required field");
     }
     try {
+      isLoading(true);
       const data = {
         deviceID: device,
         password: password,
       };
 
-      const url: string = process.env.NEXT_PUBLIC_LOGIN;
-      console.log(url);
+      // const url: string = process.env.NEXT_PUBLIC_LOGIN;
+      // console.log(url);
       const res: AxiosResponse = await axios.post(
         "https://habito-api.vercel.app/login",
         data
@@ -74,12 +77,16 @@ function LoginPage() {
                 />
               </div>
               <div className="text-center">
-                <button
-                  type="submit"
-                  className={`btn btn-info px-5 mb-5 w-100`}
-                >
-                  Login
-                </button>
+                {loading ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="submit"
+                    className={`btn btn-info px-5 mb-5 w-100`}
+                  >
+                    Login
+                  </button>
+                )}
               </div>
               <div id="emailHelp" className="form-text text-center text-dark">
                 Not Registered?{" "}

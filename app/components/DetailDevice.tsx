@@ -1,7 +1,13 @@
-import axios from "axios";
-import React from "react";
+"use client";
 
-function DetailDevice() {
+import axios, { AxiosResponse } from "axios";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+
+interface ChildProps {
+  data: any;
+}
+const DetailDevice: React.FC<ChildProps> = ({ data }) => {
   return (
     <div className="col-md-6">
       <h3>Detail Device</h3>
@@ -9,24 +15,26 @@ function DetailDevice() {
         <tbody>
           <tr>
             <td>Device ID</td>
-            <td>: habito_001</td>
+            <td>: {data ? data.deviceID : null}</td>
           </tr>
           <tr>
             <td>Owner</td>
-            <td>: Habito Team</td>
+            <td>: {data ? data.owner : null}</td>
           </tr>
           <tr>
             <td>Status</td>
-            <td>: offline</td>
+            <td>
+              : {data ? (data.status == false ? "offline" : "online") : null}
+            </td>
           </tr>
           <tr>
             <td>Last Update</td>
-            <td>: 00-00-0000</td>
+            <td>: {data ? data.lastUpdate : null}</td>
           </tr>
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 export default DetailDevice;
