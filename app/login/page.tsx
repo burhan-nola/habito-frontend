@@ -23,7 +23,10 @@ function LoginPage() {
 
       const url: string = process.env.NEXT_PUBLIC_LOGIN;
       console.log(url);
-      const res: AxiosResponse = await axios.post(url, data);
+      const res: AxiosResponse = await axios.post(
+        "https://habito-api.vercel.app/login",
+        data
+      );
       Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/dashboard");
     } catch (error: any) {
