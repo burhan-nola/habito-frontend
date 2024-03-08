@@ -20,8 +20,9 @@ function LoginPage() {
         deviceID: device,
         password: password,
       };
-      //@ts-ignore
+
       const url: string = process.env.NEXT_PUBLIC_LOGIN;
+      console.log(url);
       const res: AxiosResponse = await axios.post(url, data);
       Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/dashboard");
