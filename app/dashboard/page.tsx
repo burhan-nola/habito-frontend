@@ -10,7 +10,7 @@ import Loader from "../components/Loader";
 
 function Dashboard() {
   const session: any = Cookies.get("userData");
-  const parseSession = JSON.parse(session);
+  const parseSession: any = JSON.parse(session);
   console.log(parseSession);
   const id = parseSession.deviceID;
 
