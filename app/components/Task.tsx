@@ -8,8 +8,6 @@ interface ChildProps {
 }
 
 const Task: React.FC<ChildProps> = ({ data }) => {
-  console.log(data);
-  const lightArr = ["Red", "Green", "Blue", "Yellow"];
   const [light, setLight] = useState([]);
 
   useEffect(() => {
