@@ -30,21 +30,36 @@ const DetailDevice: React.FC<ChildProps> = ({ data }) => {
                 : null}
             </td>
           </tr>
-          {/* <tr>
+          <tr>
             <td>Last Update</td>
-            <td>: {data ? data.lastUpdate : null}</td>
-          </tr> */}
-          <tr>
-            <td>SSID</td>
-            <td>: {data ? (data.logs.SSID ? data.logs.SSID : "-") : null}</td>
-          </tr>
-          <tr>
-            <td>IP Address</td>
             <td>
-              :{" "}
-              {data ? (data.logs.ipAddress ? data.logs.ipAddress : "-") : null}
+              : {data ? data.lastUpdate.split("T")[0] : null} -{" "}
+              {data ? data.lastUpdate.split("T")[1].split(".")[0] : null}
             </td>
           </tr>
+          {data ? (
+            data.logs.SSID ? (
+              <>
+                <tr>
+                  <td>SSID</td>
+                  <td>
+                    : {data ? (data.logs.SSID ? data.logs.SSID : "-") : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>IP Address</td>
+                  <td>
+                    :{" "}
+                    {data
+                      ? data.logs.ipAddress
+                        ? data.logs.ipAddress
+                        : "-"
+                      : null}
+                  </td>
+                </tr>
+              </>
+            ) : null
+          ) : null}
         </tbody>
       </table>
     </div>
