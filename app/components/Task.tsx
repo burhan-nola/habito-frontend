@@ -39,7 +39,7 @@ const Task: React.FC<ChildProps> = ({ data }) => {
     <>
       <div className="row">
         {colorList.map(([color, colorData]: [color: any, colorData: any]) => (
-          <Bulb color={color} status={colorData.status} />
+          <Bulb color={color} status={colorData.status} key={color} />
         ))}
       </div>
     </>
