@@ -23,7 +23,6 @@ function LoginPage() {
         id: device,
         password: password,
       };
-
       // const url: string = process.env.NEXT_PUBLIC_LOGIN;
       // console.log(url);
       const res: AxiosResponse = await axios.post(
