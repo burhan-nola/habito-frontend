@@ -10,7 +10,7 @@ interface BulbProps {
 const Bulb: React.FC<BulbProps> = ({ color, status }) => {
   return (
     <div
-      className={`${style.flexcenter} col`}
+      className={`${style.flexcenter} col-xs`}
       style={{ paddingBottom: "50px" }}
     >
       <img
