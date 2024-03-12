@@ -20,7 +20,7 @@ function LoginPage() {
     try {
       isLoading(true);
       const data = {
-        idDevice: device,
+        id: device,
         password: password,
       };
 
