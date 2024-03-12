@@ -1,8 +1,4 @@
-"use client";
-
-import axios, { AxiosResponse } from "axios";
-import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import React from "react";
 
 interface ChildProps {
   data: any;
@@ -24,13 +20,20 @@ const DetailDevice: React.FC<ChildProps> = ({ data }) => {
           <tr>
             <td>Status</td>
             <td>
-              : {data ? (data.status == false ? "offline" : "online") : null}
+              :{" "}
+              {data ? (
+                data.status == false ? (
+                  <img src="./next.svg" width="10%" />
+                ) : (
+                  "online"
+                )
+              ) : null}
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td>Last Update</td>
             <td>: {data ? data.lastUpdate : null}</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
