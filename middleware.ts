@@ -1,10 +1,10 @@
-import axios from "axios";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
   const session: any = request.cookies.get("userData");
+
   if (request.nextUrl.pathname.startsWith("/dashboard")) {
     if (!session) {
       return NextResponse.redirect(new URL("/login", request.url));
