@@ -10,9 +10,8 @@ import Loader from "../components/Loader";
 
 function Dashboard() {
   const session: any = Cookies.get("userData");
-  const parseSession: any = JSON.parse(session);
-  console.log(parseSession);
-  const id = parseSession.deviceID;
+  const parseSession = session ? JSON.parse(session) : null;
+  const id = parseSession ? parseSession.idDevice : null;
 
   const [data, setData]: any = useState();
   const [loading, isLoading] = useState(true);
@@ -20,17 +19,14 @@ function Dashboard() {
   useEffect(() => {
     const user = async () => {
       const cek: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/cek?id=${id}`
+        `https://habito-api.vercel.app/cek?id=${id}`,
+        { headers: { token: parseSession.token } }
       );
-      const userData: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/user-device?id=${id}`
-      );
-      setData(userData.data);
+      setData(cek.data);
       isLoading(false);
     };
     user();
   }, []);
-  console.log(data);
 
   return (
     <>

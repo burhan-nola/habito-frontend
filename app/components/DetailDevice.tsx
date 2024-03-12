@@ -15,7 +15,7 @@ const DetailDevice: React.FC<ChildProps> = ({ data }) => {
         <tbody>
           <tr>
             <td>Device ID</td>
-            <td>: {data ? data.deviceID : null}</td>
+            <td>: {data ? data.idDevice : null}</td>
           </tr>
           <tr>
             <td>Owner</td>
