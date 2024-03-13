@@ -14,7 +14,7 @@ function LoginPage() {
   const { push } = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!device || !password) {
+    if (!device) {
       alert("required field");
     }
     try {
@@ -32,8 +32,9 @@ function LoginPage() {
       Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/dashboard");
     } catch (error: any) {
-      alert(error);
+      alert(error.response.data.message);
       console.log(error);
+      isLoading(false);
     }
   };
 

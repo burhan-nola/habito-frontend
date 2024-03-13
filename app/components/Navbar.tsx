@@ -1,38 +1,49 @@
 "use client";
-import React, { useState } from "react";
-import { FaPowerOff } from "react-icons/fa";
-import Cookies from "js-cookie";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Loader from "./Loader";
+import { Navbar, Nav } from "react-bootstrap";
+import Cookies from "js-cookie";
 
-function Navbar() {
-  const [loading, isLoading] = useState(false);
+const NavbarComponent = () => {
   const { push } = useRouter();
   return (
-    <nav className="navbar bg-body-tertiary">
+    <Navbar bg="light" expand="lg">
       <div className="container">
-        <a className="navbar-brand">
-          <img src="habito.png" width={100} />
-        </a>
-        <div className="d-flex">
-          {loading ? (
-            <Loader />
-          ) : (
-            <button
-              className="btn btn-outline-danger"
+        <Navbar.Brand href="#">
+          <img
+            src="/habito.png"
+            width={100}
+            className="d-inline-block align-top"
+            alt="Logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="ml-auto">
+            <Link href="/" className="nav-link">
+              Home
+            </Link>
+            <Link href="/change-data" className="nav-link">
+              Change Data
+            </Link>
+            <Link href="/change-password" className="nav-link">
+              Change Password
+            </Link>
+            <Link
+              href="#"
+              className="nav-link"
               onClick={() => {
-                isLoading(true);
-                Cookies.remove("userData");
                 push("/login");
+                Cookies.remove("userData");
               }}
             >
-              <FaPowerOff className="w-6 h-6" />
-            </button>
-          )}
-        </div>
+              Logout
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
       </div>
-    </nav>
+    </Navbar>
   );
-}
+};
 
-export default Navbar;
+export default NavbarComponent;
