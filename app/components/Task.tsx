@@ -8,22 +8,37 @@ interface ChildProps {
 }
 
 const Task: React.FC<ChildProps> = ({ data }) => {
-  const [light, setLight] = useState([]);
+  const [light, setLight]: any = useState([]);
 
   useEffect(() => {
     const lightStatus = async () => {
       const status: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/light-status?id=${data.idDevice}`
+        `https://habito-api.vercel.app/filter-light?id=${data.idDevice}`
       );
       setLight(status.data);
     };
     lightStatus();
   }, []);
 
-  const colorList: any = Object.entries(light).filter(
+  const newData: any = {
+    red: { status: false },
+    green: { status: false },
+    blue: { status: false },
+    yellow: { status: false },
+  };
+
+  // Iterate through each property in the data object
+  for (const key in light) {
+    // If the value is an array and not empty, take the first element
+    if (Array.isArray(light[key]) && light[key].length > 0) {
+      newData[key] = { ...light[key][0] }; // Copy the first element to newData
+    }
+  }
+  console.log(newData);
+  const colorList: any = Object.entries(newData).filter(
     ([key]) => key !== "id" && key !== "$basePath"
   );
-
+  console.log(colorList);
   return (
     <>
       <div className="row">

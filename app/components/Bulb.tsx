@@ -1,13 +1,12 @@
 import React from "react";
-import BulbImage from "./BulbImage";
 import style from "../css/bulbTask.module.css";
-import Image from "next/image";
 
 interface BulbProps {
   color: string[];
-  status: boolean;
+  status: any;
 }
 const Bulb: React.FC<BulbProps> = ({ color, status }) => {
+  console.log(status);
   return (
     <div
       className={`${style.flexcenter} col-6 col-md-3`}
