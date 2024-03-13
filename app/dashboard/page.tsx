@@ -25,7 +25,10 @@ function Dashboard() {
       setData(cek.data);
       isLoading(false);
     };
-    user();
+    const interval = setInterval(() => {
+      user();
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (

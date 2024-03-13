@@ -4,7 +4,6 @@ interface ChildProps {
   data: any;
 }
 const DetailDevice: React.FC<ChildProps> = ({ data }) => {
-  console.log(data);
   return (
     <div className="col-md-6">
       <h3>Detail Device</h3>

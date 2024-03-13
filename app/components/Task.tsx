@@ -17,7 +17,10 @@ const Task: React.FC<ChildProps> = ({ data }) => {
       );
       setLight(status.data);
     };
-    lightStatus();
+    const interval = setInterval(() => {
+      lightStatus();
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const newData: any = {
@@ -27,13 +30,14 @@ const Task: React.FC<ChildProps> = ({ data }) => {
     yellow: { status: false },
   };
 
-  // Iterate through each property in the data object
   for (const key in light) {
     // If the value is an array and not empty, take the first element
     if (Array.isArray(light[key]) && light[key].length > 0) {
-      newData[key] = { ...light[key][0] }; // Copy the first element to newData
+      newData[key] = { ...light[key][light[key].length - 1] }; // Copy the first element to newData
     }
   }
+  // Iterate through each property in the data object
+
   console.log(newData);
   const colorList: any = Object.entries(newData).filter(
     ([key]) => key !== "id" && key !== "$basePath"
