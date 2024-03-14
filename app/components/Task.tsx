@@ -10,6 +10,7 @@ interface ChildProps {
 
 const Task: React.FC<ChildProps> = ({ data }) => {
   const [light, setLight]: any = useState([]);
+  const [detailLight, setDetailLight] = useState({});
   const [loading, isLoading] = useState(true);
 
   useEffect(() => {
@@ -20,10 +21,21 @@ const Task: React.FC<ChildProps> = ({ data }) => {
       setLight(status.data);
       isLoading(false);
     };
+
     const interval = setInterval(() => {
       lightStatus();
     }, 5000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const detail = async () => {
+      const res: AxiosResponse = await axios.get(
+        `https://habito-api.vercel.app/detail-task?id=${data.idDevice}`
+      );
+      setDetailLight(res.data);
+    };
+    detail();
   }, []);
 
   const newData: any = {
@@ -39,11 +51,40 @@ const Task: React.FC<ChildProps> = ({ data }) => {
       newData[key] = { ...light[key][light[key].length - 1] }; // Copy the first element to newData
     }
   }
-  // Iterate through each property in the data object
 
-  const colorList: any = Object.entries(newData).filter(
+  interface ColorData {
+    status: boolean;
+    date: string;
+    _id: string;
+  }
+
+  interface DetailLight {
+    [key: string]: string;
+  }
+
+  function mergeData(
+    newData: Record<string, ColorData>,
+    detailLight: any
+  ): Record<string, ColorData & { task: string }> {
+    const mergedData: Record<string, ColorData & { task: string }> = {};
+    for (const color in newData) {
+      if (newData.hasOwnProperty(color)) {
+        mergedData[color] = {
+          ...newData[color],
+          task: detailLight[color],
+        };
+      }
+    }
+    return mergedData;
+  }
+
+  // Menggabungkan data
+  const mergedData = mergeData(newData, detailLight);
+  const colorList: any = Object.entries(mergedData).filter(
     ([key]) => key !== "id" && key !== "$basePath"
   );
+  console.log(colorList);
+
   return (
     <>
       <div className="row">
@@ -53,7 +94,14 @@ const Task: React.FC<ChildProps> = ({ data }) => {
           </div>
         ) : (
           colorList.map(([color, colorData]: [color: any, colorData: any]) => (
-            <Bulb color={color} status={colorData.status} key={color} />
+            <>
+              <Bulb
+                color={color}
+                status={colorData.status}
+                key={color}
+                task={colorData.task}
+              />
+            </>
           ))
         )}
       </div>
