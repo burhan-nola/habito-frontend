@@ -1,0 +1,9 @@
+.customCard {
+  /* border: 1px solid #ffffff; */
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.customCard img {
+  width: 50%;
+}
