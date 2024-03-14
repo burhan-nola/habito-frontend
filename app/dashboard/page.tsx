@@ -33,7 +33,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="container" style={{ paddingTop: "70px" }}>
+      <div className="container" style={{ paddingTop: "20px" }}>
         {loading ? (
           <div className="text-center">
             <Loader />
