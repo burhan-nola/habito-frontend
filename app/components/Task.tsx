@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Bulb from "./Bulb";
+import Loader from "./Loader";
 
 interface ChildProps {
   data: any;
@@ -9,6 +10,7 @@ interface ChildProps {
 
 const Task: React.FC<ChildProps> = ({ data }) => {
   const [light, setLight]: any = useState([]);
+  const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     const lightStatus = async () => {
@@ -16,6 +18,7 @@ const Task: React.FC<ChildProps> = ({ data }) => {
         `https://habito-api.vercel.app/filter-light?id=${data.idDevice}`
       );
       setLight(status.data);
+      isLoading(false);
     };
     const interval = setInterval(() => {
       lightStatus();
@@ -38,17 +41,21 @@ const Task: React.FC<ChildProps> = ({ data }) => {
   }
   // Iterate through each property in the data object
 
-  console.log(newData);
   const colorList: any = Object.entries(newData).filter(
     ([key]) => key !== "id" && key !== "$basePath"
   );
-  console.log(colorList);
   return (
     <>
       <div className="row">
-        {colorList.map(([color, colorData]: [color: any, colorData: any]) => (
-          <Bulb color={color} status={colorData.status} key={color} />
-        ))}
+        {loading ? (
+          <div className="text-center">
+            <Loader />
+          </div>
+        ) : (
+          colorList.map(([color, colorData]: [color: any, colorData: any]) => (
+            <Bulb color={color} status={colorData.status} key={color} />
+          ))
+        )}
       </div>
     </>
   );
