@@ -24,11 +24,8 @@ const NavbarComponent = () => {
             <Link href="/" className="nav-link">
               Home
             </Link>
-            <Link href="/change-data" className="nav-link">
+            <Link href="/dashboard/change-data" className="nav-link">
               Change Data
-            </Link>
-            <Link href="/change-password" className="nav-link">
-              Change Password
             </Link>
             <Link
               href="#"
