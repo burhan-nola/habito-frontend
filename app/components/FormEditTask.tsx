@@ -29,9 +29,34 @@ const FormEditTask = () => {
     getUser();
   }, []);
 
+  useEffect(() => {
+    const detail = async () => {
+      const res: AxiosResponse = await axios.get(
+        `https://habito-api.vercel.app/detail-task?id=${id}`
+      );
+      const { red, green, blue, yellow } = res.data;
+      setTask1(red);
+      setTask2(green);
+      setTask3(blue);
+      setTask4(yellow);
+    };
+    detail();
+  }, []);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const updateTask = {
+        task1,
+        task2,
+        task3,
+        task4,
+      };
+      const update: AxiosResponse = await axios.post(
+        `https://habito-api.vercel.app/edit-task?id=${id}`,
+        updateTask
+      );
+      push("/dashboard");
+      console.log(update.data);
     } catch (error: any) {
       alert(error.response.data.message);
       console.log(error);
@@ -99,7 +124,7 @@ const FormEditTask = () => {
                     type="submit"
                     className={`btn btn-success px-5 mb-5 w-100`}
                   >
-                    Change Data
+                    Change Task
                   </button>
                 )}
               </div>
