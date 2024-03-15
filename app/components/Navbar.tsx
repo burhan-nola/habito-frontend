@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
@@ -31,7 +31,7 @@ const NavbarComponent = () => {
                 Change Task
               </NavDropdown.Item>
             </NavDropdown>
-            <Link
+            {/* <Link
               href="#"
               className="nav-link"
               onClick={() => {
@@ -40,7 +40,20 @@ const NavbarComponent = () => {
               }}
             >
               Logout
-            </Link>
+            </Link> */}
+            <Button
+              style={{
+                backgroundColor: "transparent",
+                borderColor: "black",
+                color: "black",
+              }}
+              onClick={() => {
+                push("/login");
+                Cookies.remove("userData");
+              }}
+            >
+              Logout
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </div>
