@@ -1,6 +1,8 @@
 "use client";
 import Footer from "../components/Footer";
 import NavbarComponent from "../components/Navbar";
+import { Inter, Oswald } from "next/font/google";
+const oswald = Oswald({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -9,7 +11,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={oswald.className}>
         <NavbarComponent />
         {children}
         <Footer />

@@ -32,7 +32,7 @@ const NavbarComponent = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Link
-              href="/login"
+              href="#"
               className="nav-link"
               onClick={() => {
                 push("/login");
