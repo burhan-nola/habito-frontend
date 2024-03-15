@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { redirect, useRouter } from "next/navigation";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 const NavbarComponent = () => {
   const { push } = useRouter();
