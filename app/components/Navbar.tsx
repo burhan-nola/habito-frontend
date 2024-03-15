@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Cookies from "js-cookie";
 
@@ -32,7 +32,7 @@ const NavbarComponent = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Link
-              href="#"
+              href="/login"
               className="nav-link"
               onClick={() => {
                 push("/login");
