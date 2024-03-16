@@ -51,7 +51,7 @@ const Quotes = () => {
           <h6>-{category}-</h6>
           <p>{quote}</p>
           <h6>
-            <i>"{author}"</i>
+            <i>&quot{author}&quot</i>
           </h6>
         </div>
       )}
