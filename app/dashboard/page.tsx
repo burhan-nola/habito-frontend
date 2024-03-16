@@ -7,6 +7,7 @@ import DetailDevice from "../components/DetailDevice";
 import TodayTask from "../components/TodayTask";
 import axios, { AxiosResponse } from "axios";
 import Loader from "../components/Loader";
+import Quotes from "../components/Quotes";
 
 function Dashboard() {
   const session: any = Cookies.get("userData");
@@ -33,7 +34,10 @@ function Dashboard() {
 
   return (
     <>
-      <div className="container" style={{ paddingTop: "20px" }}>
+      <div
+        className="container"
+        style={{ paddingTop: "20px", paddingBottom: "50px" }}
+      >
         {loading ? (
           <div className="text-center">
             <Loader />
@@ -46,6 +50,8 @@ function Dashboard() {
             </div>
             <hr />
             <TodayTask data={data} />
+            <hr />
+            <Quotes />
           </>
         )}
       </div>

@@ -23,7 +23,7 @@ const NavbarComponent = () => {
             <Link href="/dashboard" className="nav-link">
               Home
             </Link>
-            <NavDropdown title="Setting" id="basic-navbar-nav">
+            <NavDropdown title="Settings" id="basic-navbar-nav">
               <NavDropdown.Item href="/dashboard/change-data">
                 Change Data
               </NavDropdown.Item>
@@ -31,6 +31,12 @@ const NavbarComponent = () => {
                 Change Task
               </NavDropdown.Item>
             </NavDropdown>
+            <Link href="#" className="nav-link">
+              News
+            </Link>
+            <Link href="#" className="nav-link">
+              About Habito
+            </Link>
             {/* <Link
               href="#"
               className="nav-link"
@@ -48,8 +54,8 @@ const NavbarComponent = () => {
                 color: "black",
               }}
               onClick={() => {
-                push("/login");
                 Cookies.remove("userData");
+                window.location.reload();
               }}
             >
               Logout
