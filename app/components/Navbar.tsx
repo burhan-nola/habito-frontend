@@ -37,17 +37,18 @@ const NavbarComponent = () => {
             <Link href="#" className="nav-link">
               About Habito
             </Link>
-            {/* <Link
+            <Link
               href="#"
               className="nav-link"
               onClick={() => {
-                push("/login");
+                window.location.reload();
+                // push("/login");
                 Cookies.remove("userData");
               }}
             >
               Logout
-            </Link> */}
-            <Button
+            </Link>
+            {/* <Button
               style={{
                 backgroundColor: "transparent",
                 borderColor: "black",
@@ -59,7 +60,7 @@ const NavbarComponent = () => {
               }}
             >
               Logout
-            </Button>
+            </Button> */}
           </Nav>
         </Navbar.Collapse>
       </div>
