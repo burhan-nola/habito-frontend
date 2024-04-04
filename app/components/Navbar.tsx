@@ -26,9 +26,9 @@ const NavbarComponent = () => {
             <Link href="/dashboard" className="nav-link">
               Home
             </Link>
-            <Link href="/blog" className="nav-link">
+            {/* <Link href="/blog" className="nav-link">
               News
-            </Link>
+            </Link> */}
             <Link href="#" className="nav-link">
               About Habito
             </Link>

@@ -88,13 +88,13 @@ function LoginPage() {
                   </button>
                 )}
               </div>
-              <div id="emailHelp" className="form-text text-center text-dark">
+              {/* <div id="emailHelp" className="form-text text-center text-dark">
                 Not Registered?{" "}
                 <a href="#" className="text-dark fw-bold">
                   {" "}
                   Create an Account
                 </a>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
