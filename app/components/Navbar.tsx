@@ -29,9 +29,9 @@ const NavbarComponent = () => {
             {/* <Link href="/blog" className="nav-link">
               News
             </Link> */}
-            <Link href="#" className="nav-link">
+            {/* <Link href="#" className="nav-link">
               About Habito
-            </Link>
+            </Link> */}
             <NavDropdown title="Settings" id="basic-navbar-nav">
               <NavDropdown.Item href="/dashboard/change-data">
                 Change Data
