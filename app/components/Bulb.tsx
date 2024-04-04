@@ -15,25 +15,6 @@ const Bulb: React.FC<BulbProps> = ({ color, status, task }) => {
         className={`${style.flexcenter} col-6 col-md-3`}
         style={{ paddingBottom: "50px" }}
       >
-        {/* <table className="text-center">
-          <tbody>
-            <tr>
-              <td>
-                <img
-                  src={`./icons/${status ? "check" : "cross"}/${color}.png`}
-                  alt=""
-                  width="50%"
-                  className={style.imgcenter}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>{task}</h5>
-              </td>
-            </tr>
-          </tbody>
-        </table> */}
         <div className={`${styleCard.customCard} text-center`}>
           <img
             src={`./icons/${status ? "check" : "cross"}/${color}.png`}

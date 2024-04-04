@@ -83,7 +83,6 @@ const Task: React.FC<ChildProps> = ({ data }) => {
   const colorList: any = Object.entries(mergedData).filter(
     ([key]) => key !== "id" && key !== "$basePath"
   );
-  console.log(colorList);
 
   return (
     <>

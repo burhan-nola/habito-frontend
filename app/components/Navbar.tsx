@@ -17,11 +17,20 @@ const NavbarComponent = () => {
             alt="Logo"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="ml-auto">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-end"
+        >
+          <Nav>
             <Link href="/dashboard" className="nav-link">
               Home
+            </Link>
+            <Link href="/blog" className="nav-link">
+              News
+            </Link>
+            <Link href="#" className="nav-link">
+              About Habito
             </Link>
             <NavDropdown title="Settings" id="basic-navbar-nav">
               <NavDropdown.Item href="/dashboard/change-data">
@@ -31,12 +40,7 @@ const NavbarComponent = () => {
                 Change Task
               </NavDropdown.Item>
             </NavDropdown>
-            <Link href="#" className="nav-link">
-              News
-            </Link>
-            <Link href="#" className="nav-link">
-              About Habito
-            </Link>
+
             <Link
               href="#"
               className="nav-link"

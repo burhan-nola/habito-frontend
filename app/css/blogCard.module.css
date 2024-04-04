@@ -1,0 +1,10 @@
+.customCard {
+  border: 1px solid #000000;
+  box-shadow: slategray;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.customCard img {
+  width: 40%;
+}
