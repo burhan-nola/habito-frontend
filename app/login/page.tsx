@@ -4,6 +4,7 @@ import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 function LoginPage() {
   const [device, setDevice] = useState("");
@@ -26,7 +27,7 @@ function LoginPage() {
       // const url: string = process.env.NEXT_PUBLIC_LOGIN;
       // console.log(url);
       const res: AxiosResponse = await axios.post(
-        "https://habito-api.vercel.app/login",
+        "https://api.habito.id/login",
         data
       );
       Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
@@ -88,13 +89,13 @@ function LoginPage() {
                   </button>
                 )}
               </div>
-              {/* <div id="emailHelp" className="form-text text-center text-dark">
-                Not Registered?{" "}
-                <a href="#" className="text-dark fw-bold">
+              <div id="emailHelp" className="form-text text-center text-dark">
+                <a href="https://habito.id/" className="text-dark fw-bold">
                   {" "}
-                  Create an Account
+                  <IoMdArrowRoundBack />
+                  Back to News
                 </a>
-              </div> */}
+              </div>
             </form>
           </div>
         </div>

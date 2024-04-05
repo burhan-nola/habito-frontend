@@ -52,7 +52,7 @@ const FormEditTask = () => {
         task4,
       };
       const update: AxiosResponse = await axios.post(
-        `https://habito-api.vercel.app/edit-task?id=${id}`,
+        `https://api.habito.id/edit-task?id=${id}`,
         updateTask
       );
       push("/dashboard");

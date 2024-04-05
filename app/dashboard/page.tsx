@@ -20,7 +20,7 @@ function Dashboard() {
   useEffect(() => {
     const user = async () => {
       const cek: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/cek?id=${id}`,
+        `https://api.habito.id/cek?id=${id}`,
         { headers: { token: parseSession.token } }
       );
       setData(cek.data);

@@ -19,7 +19,7 @@ const FormEditData = () => {
   useEffect(() => {
     const getUser = async () => {
       const data: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/user?id=${id}`
+        `https://api.habito.id/user?id=${id}`
       );
       setOwner(data.data.owner);
       setOldPassword(data.data.password);
@@ -30,7 +30,7 @@ const FormEditData = () => {
     e.preventDefault();
     try {
       const editData: AxiosResponse = await axios.patch(
-        `https://habito-api.vercel.app/user?id=${id}`,
+        `https://api.habito.id/user?id=${id}`,
         {
           owner: owner,
           password: password ? password : oldPassword,

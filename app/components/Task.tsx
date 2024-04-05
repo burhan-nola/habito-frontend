@@ -16,7 +16,7 @@ const Task: React.FC<ChildProps> = ({ data }) => {
   useEffect(() => {
     const lightStatus = async () => {
       const status: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/filter-light?id=${data.idDevice}`
+        `https://api.habito.id/filter-light?id=${data.idDevice}`
       );
       setLight(status.data);
       isLoading(false);
@@ -31,7 +31,7 @@ const Task: React.FC<ChildProps> = ({ data }) => {
   useEffect(() => {
     const detail = async () => {
       const res: AxiosResponse = await axios.get(
-        `https://habito-api.vercel.app/detail-task?id=${data.idDevice}`
+        `https://api.habito.id/detail-task?id=${data.idDevice}`
       );
       setDetailLight(res.data);
     };
