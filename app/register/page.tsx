@@ -16,7 +16,8 @@ function LoginPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!device || !password) {
-      alert("required field");
+      const alert: any = "fill the Device ID and Password";
+      setError(alert);
       return;
     }
     try {
@@ -34,7 +35,8 @@ function LoginPage() {
       // Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/login");
     } catch (error: any) {
-      alert(error.response.data.message);
+      // alert(error.response.data.message);
+      setError(error.response.data.message);
       // console.log(error);
       isLoading(false);
     }
@@ -83,12 +85,15 @@ function LoginPage() {
                 {loading ? (
                   <Loader />
                 ) : (
-                  <button
-                    type="submit"
-                    className={`btn btn-success px-5 mb-5 w-100`}
-                  >
-                    Register
-                  </button>
+                  <>
+                    <button
+                      type="submit"
+                      className={`btn btn-success px-5 w-100`}
+                    >
+                      Register
+                    </button>
+                    <h5 className="text-danger">{error}</h5>
+                  </>
                 )}
               </div>
               <div className="row">
