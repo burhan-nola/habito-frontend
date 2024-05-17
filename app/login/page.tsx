@@ -17,6 +17,7 @@ function LoginPage() {
     e.preventDefault();
     if (!device) {
       alert("required field");
+      return;
     }
     try {
       isLoading(true);
@@ -33,8 +34,9 @@ function LoginPage() {
       Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/dashboard");
     } catch (error: any) {
-      alert(error.response.data.message);
-      console.log(error);
+      // alert(error.response.data.message);
+      setError(error.response.data.message);
+      // console.log(error);
       isLoading(false);
     }
   };
@@ -81,12 +83,12 @@ function LoginPage() {
                 {loading ? (
                   <Loader />
                 ) : (
-                  <button
-                    type="submit"
-                    className={`btn btn-info px-5 mb-5 w-100`}
-                  >
-                    Login
-                  </button>
+                  <>
+                    <button type="submit" className={`btn btn-info px-5 w-100`}>
+                      Login
+                    </button>
+                    <h5 className="text-danger">{error}</h5>
+                  </>
                 )}
               </div>
               <div className="row">
