@@ -45,16 +45,12 @@ const Quotes = () => {
     getQuote();
   }, []);
   return (
-    <div className="row">
-      {loading ? null : (
-        <div className="col-md-6 text-center">
-          <h6>-{category}-</h6>
-          <p>{quote}</p>
-          <h6>
-            <i>&quot;{author}&quot;</i>
-          </h6>
-        </div>
-      )}
+    <div className="col-md-6 text-center">
+      <h6>-{category}-</h6>
+      <p>{quote}</p>
+      <h6>
+        <i>&quot;{author}&quot;</i>
+      </h6>
     </div>
   );
 };

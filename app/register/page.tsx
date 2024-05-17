@@ -15,8 +15,9 @@ function LoginPage() {
   const { push } = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!device) {
+    if (!device || !password) {
       alert("required field");
+      return;
     }
     try {
       isLoading(true);
@@ -27,14 +28,14 @@ function LoginPage() {
       // const url: string = process.env.NEXT_PUBLIC_LOGIN;
       // console.log(url);
       const res: AxiosResponse = await axios.post(
-        "https://api.habito.id/login",
+        "https://api.habito.id/register",
         data
       );
-      Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
-      push("/dashboard");
+      // Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
+      push("/login");
     } catch (error: any) {
       alert(error.response.data.message);
-      console.log(error);
+      // console.log(error);
       isLoading(false);
     }
   };
@@ -57,6 +58,7 @@ function LoginPage() {
                   style={{ paddingBottom: "20px" }}
                 />
               </div>
+              <h4 className="text-center">Register your device</h4>
               <div className="mb-3">
                 <input
                   type="text"
@@ -74,7 +76,7 @@ function LoginPage() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="password"
+                  placeholder="Password"
                 />
               </div>
               <div className="text-center">
@@ -83,9 +85,9 @@ function LoginPage() {
                 ) : (
                   <button
                     type="submit"
-                    className={`btn btn-info px-5 mb-5 w-100`}
+                    className={`btn btn-success px-5 mb-5 w-100`}
                   >
-                    Login
+                    Register
                   </button>
                 )}
               </div>
@@ -104,9 +106,9 @@ function LoginPage() {
                   id="emailHelp"
                   className="col-6 form-text text-center text-dark"
                 >
-                  <a href="/register" className="text-dark fw-bold">
+                  <a href="/login" className="text-dark fw-bold">
                     {" "}
-                    Register here
+                    Login...
                   </a>
                 </div>
               </div>

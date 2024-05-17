@@ -29,13 +29,13 @@ const DetailDevice: React.FC<ChildProps> = ({ data }) => {
                 : null}
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td>Last Update</td>
             <td>
               : {data ? data.lastUpdate.split("T")[0] : null} -{" "}
               {data ? data.lastUpdate.split("T")[1].split(".")[0] : null}
             </td>
-          </tr>
+          </tr> */}
           {data ? (
             data.logs.SSID ? (
               <>

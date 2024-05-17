@@ -51,7 +51,12 @@ function Dashboard() {
             <hr />
             <TodayTask data={data} />
             <hr />
-            <Quotes />
+            <div className="row">
+              <Quotes />
+              <div className="col-md-6">
+                <h3 style={{ textAlign: "center" }}>History</h3>
+              </div>
+            </div>
           </>
         )}
       </div>
