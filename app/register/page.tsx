@@ -104,19 +104,10 @@ function LoginPage() {
                   id="emailHelp"
                   className="col-6 form-text text-center text-dark"
                 >
-                  <a href="https://habito.id/" className="text-dark fw-bold">
-                    {" "}
-                    <IoMdArrowRoundBack />
-                    Back to News
-                  </a>
-                </div>
-                <div
-                  id="emailHelp"
-                  className="col-6 form-text text-center text-dark"
-                >
                   <a href="/login" className="text-dark fw-bold">
                     {" "}
-                    Login...
+                    <IoMdArrowRoundBack />
+                    Back to Login
                   </a>
                 </div>
               </div>
