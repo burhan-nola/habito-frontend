@@ -32,6 +32,7 @@ function LoginPage() {
         "https://api.habito.id/register",
         data
       );
+      alert(res.data.message);
       // Cookies.set("userData", JSON.stringify(res.data), { expires: 1 / 24 });
       push("/login");
     } catch (error: any) {
