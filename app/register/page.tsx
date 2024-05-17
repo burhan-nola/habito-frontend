@@ -85,6 +85,8 @@ function LoginPage() {
               <div className="text-center">
                 {loading ? (
                   <Loader />
+                ) : device == "" ? (
+                  ""
                 ) : (
                   <>
                     <button

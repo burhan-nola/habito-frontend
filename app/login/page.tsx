@@ -10,13 +10,14 @@ function LoginPage() {
   const [device, setDevice] = useState("");
   const [password, setPassword] = useState("");
   const [loading, isLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError]: any = useState();
 
   const { push } = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!device) {
-      alert("required field");
+      // alert("required field");
+      setError("*Please fill the form");
       return;
     }
     try {
@@ -82,6 +83,8 @@ function LoginPage() {
               <div className="text-center">
                 {loading ? (
                   <Loader />
+                ) : device == "" ? (
+                  ""
                 ) : (
                   <>
                     <button type="submit" className={`btn btn-info px-5 w-100`}>
