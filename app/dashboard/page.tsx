@@ -54,7 +54,7 @@ function Dashboard() {
             <hr />
             <div className="row">
               <Quotes />
-              <div className="col-md-6" style={{justifyContent: "center"}}>
+              <div className="col-md-6" style={{display:"flex", alignItem:"center", justifyContent: "center"}}>
                 <h3 style={{ textAlign: "center" }}>History</h3>
                 <TableHistory />
               </div>
