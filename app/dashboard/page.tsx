@@ -8,6 +8,7 @@ import TodayTask from "../components/TodayTask";
 import axios, { AxiosResponse } from "axios";
 import Loader from "../components/Loader";
 import Quotes from "../components/Quotes";
+import TableHistory from "../components/TableHistory";
 
 function Dashboard() {
   const session: any = Cookies.get("userData");
@@ -55,6 +56,7 @@ function Dashboard() {
               <Quotes />
               <div className="col-md-6">
                 <h3 style={{ textAlign: "center" }}>History</h3>
+                <TableHistory />
               </div>
             </div>
           </>

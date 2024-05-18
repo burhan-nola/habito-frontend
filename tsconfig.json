@@ -19,7 +19,9 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "target": "es2015",
+    "downlevelIteration": true
   },
   "include": [
     ".env.d.ts",
