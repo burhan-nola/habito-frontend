@@ -97,7 +97,7 @@ const imageSrc:{[key:string]:string} = {
         <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
 </td>
         {recentDates.map((date: any, index: any) => (
-          <td key={index}>
+          <td key={index} style={{textAlign:"center", verticalAlign:"middle"}}>
             {dateMap[date] ? (
               <div>
                 {/* <div>ID: {dateMap[date]._id}</div> */}
