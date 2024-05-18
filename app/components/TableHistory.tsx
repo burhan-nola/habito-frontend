@@ -113,7 +113,7 @@ const TableHistory: React.FC = () => {
     >
       <thead>
         <tr>
-          <th>Category</th>
+          <th>Task</th>
           {recentDates.map((date: any, index: any) => (
             <th key={index}>{date}</th>
           ))}
