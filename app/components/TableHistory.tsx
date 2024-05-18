@@ -103,7 +103,8 @@ const TableHistory: React.FC = () => {
   };
 
   return (
-    <table
+<div style={{display:"flex", alignItems:"center", justifyContent: "center"}}>
+  <table
       style={{
         width: "80%",
         borderCollapse: "collapse",
@@ -125,6 +126,8 @@ const TableHistory: React.FC = () => {
         )}
       </tbody>
     </table>
+</div>
+  
   );
 };
 
