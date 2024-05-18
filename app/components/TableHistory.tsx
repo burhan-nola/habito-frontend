@@ -63,10 +63,10 @@ const TableHistory: React.FC = () => {
   const renderTableRow = (color: string) => {
 
 const imageSrc:{[key:string]:string} = {
-      red: 'path/to/red.png',
-      green: 'path/to/green.png',
-      blue: 'path/to/blue.png',
-      yellow: 'path/to/yellow.png',
+      red: 'icons/check/red.png',
+      green: 'icons/check/green.png',
+      blue: 'icons/check/blue.png',
+      yellow: 'icons/check/yellow.png',
     };
 
     if (!history[color] || history[color].length === 0) {
