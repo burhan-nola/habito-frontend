@@ -106,7 +106,7 @@ const TableHistory: React.FC = () => {
 <div style={{display:"flex", alignItems:"center", justifyContent: "center"}}>
   <table
       style={{
-        width: "80%",
+        width: "90%",
         borderCollapse: "collapse",
         marginBottom: "20px",
       }}
