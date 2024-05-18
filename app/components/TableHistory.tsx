@@ -109,6 +109,7 @@ const TableHistory: React.FC = () => {
         width: "80%",
         borderCollapse: "collapse",
         marginBottom: "20px",
+border:"1px",
       }}
       className="text-center"
     >
