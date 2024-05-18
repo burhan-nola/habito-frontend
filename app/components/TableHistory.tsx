@@ -38,7 +38,7 @@ const TableHistory: React.FC = () => {
       }
     };
     getHistory();
-  }, [id]);
+  }, []);
 
   if (!history) {
     return <p>Loading...</p>;
