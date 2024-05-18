@@ -61,10 +61,19 @@ const TableHistory: React.FC = () => {
   }
 
   const renderTableRow = (color: string) => {
+
+const imageSrc = {
+      red: 'path/to/red.png',
+      green: 'path/to/green.png',
+      blue: 'path/to/blue.png',
+      yellow: 'path/to/yellow.png',
+    };
+
     if (!history[color] || history[color].length === 0) {
       return (
         <tr key={color}>
-          <td>{color}</td>
+          <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
+</td>
           {recentDates.map((date: any, index: any) => (
             <td key={index}>
               <div> - </div>
