@@ -54,7 +54,7 @@ const TableHistory: React.FC = () => {
 
   // Buat array dari 7 hari terakhir
   const recentDates: any = [];
-  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() + 1)) {
+  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() +0)) {
     recentDates.push(
       d.toLocaleDateString(undefined, { day: "numeric", month: "short" })
     );
