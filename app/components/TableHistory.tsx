@@ -105,7 +105,7 @@ const TableHistory: React.FC = () => {
   return (
     <table
       style={{
-        width: "100%",
+        width: "80%",
         borderCollapse: "collapse",
         marginBottom: "20px",
       }}
