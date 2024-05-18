@@ -62,7 +62,7 @@ const TableHistory: React.FC = () => {
 
   const renderTableRow = (color: string) => {
 
-const imageSrc = {
+const imageSrc:{[key:string]:string} = {
       red: 'path/to/red.png',
       green: 'path/to/green.png',
       blue: 'path/to/blue.png',
