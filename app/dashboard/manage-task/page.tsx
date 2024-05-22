@@ -53,6 +53,13 @@ const DataTable: React.FC = () => {
     return <div>{error}</div>;
   }
 
+  const abortTask = (color: string) => {
+    const res = axios.get(
+      `https://api.habito.id/abort-task?id=${id}&color=${color}`
+    );
+    // console.log(res);
+    window.location.reload();
+  };
   return (
     <>
       <div className="container">
@@ -60,6 +67,7 @@ const DataTable: React.FC = () => {
           <thead>
             <tr>
               <th>Task</th>
+              <th>Time</th>
               <th>Today Task</th>
               <th>Action</th>
             </tr>
@@ -68,6 +76,11 @@ const DataTable: React.FC = () => {
             <tr>
               <td>
                 <img src="/icons/check/red.png" alt="" height={30} width={30} />
+              </td>
+              <td>
+                {data && data.red.length > 0 && data.red[0].status == true
+                  ? JSON.stringify(data.red[0].date).split("T")[1].split(".")[0]
+                  : ""}
               </td>
               <td>
                 {data && data.red.length > 0 && data.red[0].status == true ? (
@@ -83,7 +96,7 @@ const DataTable: React.FC = () => {
                     alt=""
                     height={20}
                     width={20}
-                    onClick={() => alert("vhvhvh")}
+                    onClick={() => abortTask("red")}
                   />
                 ) : (
                   ""
@@ -100,6 +113,13 @@ const DataTable: React.FC = () => {
                 />
               </td>
               <td>
+                {data && data.green.length > 0 && data.green[0].status == true
+                  ? JSON.stringify(data.green[0].date)
+                      .split("T")[1]
+                      .split(".")[0]
+                  : ""}
+              </td>
+              <td>
                 {data && data.green.length > 0 && data.green[0].status ? (
                   <FaSquareCheck />
                 ) : (
@@ -110,7 +130,13 @@ const DataTable: React.FC = () => {
                 {data &&
                 data.green.length > 0 &&
                 data.green[0].status == true ? (
-                  <img src="/delete.svg" alt="" height={20} width={20} />
+                  <img
+                    src="/delete.svg"
+                    alt=""
+                    height={20}
+                    width={20}
+                    onClick={() => abortTask("green")}
+                  />
                 ) : (
                   ""
                 )}
@@ -126,6 +152,13 @@ const DataTable: React.FC = () => {
                 />
               </td>
               <td>
+                {data && data.blue.length > 0 && data.blue[0].status == true
+                  ? JSON.stringify(data.blue[0].date)
+                      .split("T")[1]
+                      .split(".")[0]
+                  : ""}
+              </td>
+              <td>
                 {data && data.blue.length > 0 && data.blue[0].status == true ? (
                   <FaSquareCheck />
                 ) : (
@@ -134,7 +167,13 @@ const DataTable: React.FC = () => {
               </td>
               <td>
                 {data && data.blue.length > 0 && data.blue[0].status == true ? (
-                  <img src="/delete.svg" alt="" height={20} width={20} />
+                  <img
+                    src="/delete.svg"
+                    alt=""
+                    height={20}
+                    width={20}
+                    onClick={() => abortTask("blue")}
+                  />
                 ) : (
                   ""
                 )}
@@ -150,6 +189,13 @@ const DataTable: React.FC = () => {
                 />
               </td>
               <td>
+                {data && data.yellow.length > 0 && data.yellow[0].status == true
+                  ? JSON.stringify(data.yellow[0].date)
+                      .split("T")[1]
+                      .split(".")[0]
+                  : ""}
+              </td>
+              <td>
                 {data &&
                 data.yellow.length > 0 &&
                 data.yellow[0].status == true ? (
@@ -162,7 +208,13 @@ const DataTable: React.FC = () => {
                 {data &&
                 data.yellow.length > 0 &&
                 data.yellow[0].status == true ? (
-                  <img src="/delete.svg" alt="" height={20} width={20} />
+                  <img
+                    src="/delete.svg"
+                    alt=""
+                    height={20}
+                    width={20}
+                    onClick={() => abortTask("yellow")}
+                  />
                 ) : (
                   ""
                 )}
