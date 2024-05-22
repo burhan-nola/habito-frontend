@@ -80,13 +80,13 @@ const DataTable: React.FC = () => {
               <td>
                 {data && data.red.length > 0 && data.red[0].status == true
                   ? JSON.stringify(data.red[0].date).split("T")[1].split(".")[0]
-                  : ""}
+                  : "-"}
               </td>
               <td>
                 {data && data.red.length > 0 && data.red[0].status == true ? (
                   <FaSquareCheck />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
               <td>
@@ -99,7 +99,7 @@ const DataTable: React.FC = () => {
                     onClick={() => abortTask("red")}
                   />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
             </tr>
@@ -117,13 +117,13 @@ const DataTable: React.FC = () => {
                   ? JSON.stringify(data.green[0].date)
                       .split("T")[1]
                       .split(".")[0]
-                  : ""}
+                  : "-"}
               </td>
               <td>
                 {data && data.green.length > 0 && data.green[0].status ? (
                   <FaSquareCheck />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
               <td>
@@ -138,7 +138,7 @@ const DataTable: React.FC = () => {
                     onClick={() => abortTask("green")}
                   />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
             </tr>
@@ -156,13 +156,13 @@ const DataTable: React.FC = () => {
                   ? JSON.stringify(data.blue[0].date)
                       .split("T")[1]
                       .split(".")[0]
-                  : ""}
+                  : "-"}
               </td>
               <td>
                 {data && data.blue.length > 0 && data.blue[0].status == true ? (
                   <FaSquareCheck />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
               <td>
@@ -175,7 +175,7 @@ const DataTable: React.FC = () => {
                     onClick={() => abortTask("blue")}
                   />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
             </tr>
@@ -193,7 +193,7 @@ const DataTable: React.FC = () => {
                   ? JSON.stringify(data.yellow[0].date)
                       .split("T")[1]
                       .split(".")[0]
-                  : ""}
+                  : "-"}
               </td>
               <td>
                 {data &&
@@ -201,7 +201,7 @@ const DataTable: React.FC = () => {
                 data.yellow[0].status == true ? (
                   <FaSquareCheck />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
               <td>
@@ -216,7 +216,7 @@ const DataTable: React.FC = () => {
                     onClick={() => abortTask("yellow")}
                   />
                 ) : (
-                  ""
+                  "-"
                 )}
               </td>
             </tr>
