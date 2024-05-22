@@ -38,7 +38,7 @@ const TableHistory: React.FC = () => {
       }
     };
     getHistory();
-  }, [id]);
+  }, []);
 
   if (!history) {
     return <p>Loading...</p>;
@@ -54,17 +54,26 @@ const TableHistory: React.FC = () => {
 
   // Buat array dari 7 hari terakhir
   const recentDates: any = [];
-  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() + 1)) {
+  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() +1)) {
     recentDates.push(
       d.toLocaleDateString(undefined, { day: "numeric", month: "short" })
     );
   }
 
   const renderTableRow = (color: string) => {
+
+const imageSrc:{[key:string]:string} = {
+      red: '/icons/check/red.png',
+      green: '/icons/check/green.png',
+      blue: '/icons/check/blue.png',
+      yellow: '/icons/check/yellow.png',
+    };
+
     if (!history[color] || history[color].length === 0) {
       return (
         <tr key={color}>
-          <td>{color}</td>
+          <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
+</td>
           {recentDates.map((date: any, index: any) => (
             <td key={index}>
               <div> - </div>
@@ -85,9 +94,10 @@ const TableHistory: React.FC = () => {
 
     return (
       <tr key={color}>
-        <td>{color}</td>
+        <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
+</td>
         {recentDates.map((date: any, index: any) => (
-          <td key={index}>
+          <td key={index} style={{textAlign:"center", verticalAlign:"middle"}}>
             {dateMap[date] ? (
               <div>
                 {/* <div>ID: {dateMap[date]._id}</div> */}
@@ -105,17 +115,18 @@ const TableHistory: React.FC = () => {
   };
 
   return (
-    <table
+<div style={{display:"flex", alignItems:"center", justifyContent: "center"}}>
+  <table
       style={{
         width: "100%",
         borderCollapse: "collapse",
         marginBottom: "20px",
       }}
-      className="text-center"
+      className="text-center table table-striped"
     >
       <thead>
         <tr>
-          <th>Category</th>
+          <th>Task</th>
           {recentDates.map((date: any, index: any) => (
             <th key={index}>{date}</th>
           ))}
@@ -127,6 +138,8 @@ const TableHistory: React.FC = () => {
         )}
       </tbody>
     </table>
+</div>
+  
   );
 };
 
