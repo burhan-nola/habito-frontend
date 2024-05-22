@@ -39,6 +39,9 @@ const NavbarComponent = () => {
               <NavDropdown.Item href="/dashboard/change-task">
                 Change Task
               </NavDropdown.Item>
+              <NavDropdown.Item href="/dashboard/manage-task">
+                Manage Task
+              </NavDropdown.Item>
             </NavDropdown>
 
             <Link
