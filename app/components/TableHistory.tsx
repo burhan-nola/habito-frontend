@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { GiCheckMark } from "react-icons/gi";
 
@@ -54,26 +55,31 @@ const TableHistory: React.FC = () => {
 
   // Buat array dari 7 hari terakhir
   const recentDates: any = [];
-  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() +1)) {
+  for (let d = new Date(sevenDaysAgo); d <= today; d.setDate(d.getDate() + 1)) {
     recentDates.push(
       d.toLocaleDateString(undefined, { day: "numeric", month: "short" })
     );
   }
 
   const renderTableRow = (color: string) => {
-
-const imageSrc:{[key:string]:string} = {
-      red: '/icons/check/red.png',
-      green: '/icons/check/green.png',
-      blue: '/icons/check/blue.png',
-      yellow: '/icons/check/yellow.png',
+    const imageSrc: { [key: string]: string } = {
+      red: "/icons/check/red.png",
+      green: "/icons/check/green.png",
+      blue: "/icons/check/blue.png",
+      yellow: "/icons/check/yellow.png",
     };
 
     if (!history[color] || history[color].length === 0) {
       return (
         <tr key={color}>
-          <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
-</td>
+          <td>
+            {" "}
+            <img
+              src={imageSrc[color]}
+              alt={color}
+              style={{ width: "50px", height: "50px" }}
+            />
+          </td>
           {recentDates.map((date: any, index: any) => (
             <td key={index}>
               <div> - </div>
@@ -94,10 +100,19 @@ const imageSrc:{[key:string]:string} = {
 
     return (
       <tr key={color}>
-        <td> <img src={imageSrc[color]} alt={color} style={{ width: '50px', height: '50px' }} />
-</td>
+        <td>
+          {" "}
+          <img
+            src={imageSrc[color]}
+            alt={color}
+            style={{ width: "50px", height: "50px" }}
+          />
+        </td>
         {recentDates.map((date: any, index: any) => (
-          <td key={index} style={{textAlign:"center", verticalAlign:"middle"}}>
+          <td
+            key={index}
+            style={{ textAlign: "center", verticalAlign: "middle" }}
+          >
             {dateMap[date] ? (
               <div>
                 {/* <div>ID: {dateMap[date]._id}</div> */}
@@ -115,31 +130,41 @@ const imageSrc:{[key:string]:string} = {
   };
 
   return (
-<div style={{display:"flex", alignItems:"center", justifyContent: "center"}}>
-  <table
-      style={{
-        width: "100%",
-        borderCollapse: "collapse",
-        marginBottom: "20px",
-      }}
-      className="text-center table table-striped"
-    >
-      <thead>
-        <tr>
-          <th>Task</th>
-          {recentDates.map((date: any, index: any) => (
-            <th key={index}>{date}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {["red", "green", "blue", "yellow"].map((color) =>
-          renderTableRow(color)
-        )}
-      </tbody>
-    </table>
-</div>
-  
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            marginBottom: "20px",
+          }}
+          className="text-center table table-striped"
+        >
+          <thead>
+            <tr>
+              <th>Task</th>
+              {recentDates.map((date: any, index: any) => (
+                <th key={index}>{date}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {["red", "green", "blue", "yellow"].map((color) =>
+              renderTableRow(color)
+            )}
+          </tbody>
+        </table>
+      </div>
+      <Link href="#" className="text-black">
+        See more histories...
+      </Link>
+    </>
   );
 };
 

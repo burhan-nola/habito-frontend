@@ -55,7 +55,7 @@ function Dashboard() {
             <div className="row">
               <Quotes />
               <div className="col-md-6">
-                <h3 style={{ textAlign: "center" }}>History</h3>
+                <h3 className="text-center">History</h3>
                 <TableHistory />
               </div>
             </div>
