@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import { FaCheck } from "react-icons/fa";
+import { GiCheckMark } from "react-icons/gi";
 
 interface SessionData {
   idDevice: string;
@@ -91,7 +91,9 @@ const TableHistory: React.FC = () => {
             {dateMap[date] ? (
               <div>
                 {/* <div>ID: {dateMap[date]._id}</div> */}
-                <div>{dateMap[date].status == true ? <FaCheck /> : "-"}</div>
+                <div>
+                  {dateMap[date].status == true ? <GiCheckMark /> : "-"}
+                </div>
               </div>
             ) : (
               <div> - </div>
